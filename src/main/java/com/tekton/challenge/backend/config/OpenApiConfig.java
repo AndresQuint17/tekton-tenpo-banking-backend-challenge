@@ -28,6 +28,6 @@ public class OpenApiConfig {
                 )
                 .externalDocs(new ExternalDocumentation()
                         .description("Repositorio público del proyecto")
-                        .url("https://github.com/AndresQuint17"));
+                        .url("https://github.com/AndresQuint17/tekton-tenpo-banking-backend-challenge"));
     }
 }
