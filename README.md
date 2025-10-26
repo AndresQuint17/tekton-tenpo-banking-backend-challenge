@@ -71,3 +71,11 @@ docker run -d \
     -e SPRING_DATASOURCE_PASSWORD="banca_pass" \
     andresdavidqc/banca-api:latest
 ```
+
+## Documentación de la API
+
+Para obtener más detalles sobre cómo interactuar con la API, puedes consultar la documentación interactiva en Swagger.
+
+[Acceder a la documentación de Swagger](http://localhost:8080/swagger-ui/index.html) *(asegúrate de que el servidor esté en funcionamiento)*
+
+Allí podrás ver todos los endpoints disponibles, los parámetros que puedes usar, ejemplos de respuestas y mucho más.
