@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    container_name: banca-api
+    image: banca-api:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/banca_db
+      SPRING_DATASOURCE_USERNAME: banca_user
+      SPRING_DATASOURCE_PASSWORD: banca_pass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+    depends_on:
+      - db
+    networks:
+      - banca-net
+
+  db:
+    image: postgres:17.4-alpine3.21
+    container_name: banca-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: banca_db
+      POSTGRES_USER: banca_user
+      POSTGRES_PASSWORD: banca_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - banca-net
+
+networks:
+  banca-net:
+
+volumes:
+  postgres_data:

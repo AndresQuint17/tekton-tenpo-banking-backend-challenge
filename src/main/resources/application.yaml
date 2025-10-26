@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/banca_db}
+    username: ${DB_USERNAME:banca_user}
+    password: ${DB_PASSWORD:banca_pass}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      minimum-idle: 5
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.default_schema: public
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: ${SPRING_JPA_SHOW_SQL:true} # Para ver las consultas SQL en los logs
+  logging:
+    level:
+      org.hibernate.SQL: DEBUG # Ver todas las consultas SQL en los logs
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE # Ver los valores de los parámetros en las consultas
